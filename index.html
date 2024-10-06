@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Travian Troops Efficiency</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/troop-icons/roman/tile000.png">
+</head>
+
+<body>
+
+    <section>
+        <div id="settings">
+            <h2 id="settings-header" class="clickable" onclick='toggleSettings()'>Show filters &#9664</h2>
+
+            <div id="settings-content">
+                <div id="settings-categories-container">
+                    <!-- Filter roles -->
+                    <div class="settings-category">
+                        <!-- Filter roles heading -->
+                        <label>Roles</label> <br>
+
+                        <!-- Filter role: offense -->
+                        <input type="checkbox" name="offense" onclick='filterRole("offense")' checked>
+                        <label for="offense">Offense</label> </br>
+
+                        <!-- Filter role: defense -->
+                        <input type="checkbox" name="defense" onclick='filterRole("defense")' checked>
+                        <label for="defense">Defense</label> </br>
+
+                        <!-- Filter role: hybrid -->
+                        <input type="checkbox" name="hybrid" onclick='filterRole("hybrid")' checked>
+                        <label for="hybrid">Hybrid</label> </br>
+
+                        <!-- Filter role: scout -->
+                        <input type="checkbox" name="scout" onclick='filterRole("scout")'>
+                        <label for="scout">Scout</label> </br>
+
+                        <!-- Filter role: utility -->
+                        <input type="checkbox" name="utility" onclick='filterRole("utility")'>
+                        <label for="utility">Utility</label> </br>
+                    </div>
+
+                    <!-- Filter types -->
+                    <div class="settings-category">
+                        <!-- Filter types heading -->
+                        <label>Types</label> <br>
+
+                        <!-- Filter role: infantry -->
+                        <input type="checkbox" name="infantry" onclick='filterType("infantry")' checked>
+                        <label for="infantry">Infantry</label> </br>
+
+                        <!-- Filter role: cavalry -->
+                        <input type="checkbox" name="cavalry" onclick='filterType("cavalry")' checked>
+                        <label for="cavalry">Cavalry</label> </br>
+
+                        <!-- Filter role: siege -->
+                        <input type="checkbox" name="siege" onclick='filterType("siege")'>
+                        <label for="siege">Siege</label> </br>
+
+                        <!-- Filter role: settler -->
+                        <input type="checkbox" name="settler" onclick='filterType("settler")'>
+                        <label for="settler">Settler</label> </br>
+
+                        <!-- Filter role: chief -->
+                        <input type="checkbox" name="chief" onclick='filterType("chief")'>
+                        <label for="chief">Chief</label> </br>
+                    </div>
+
+                    <!-- Filter tribe -->
+                    <div class="settings-category">
+                        <!-- Filter tribe heading -->
+                        <label>Tribes</label> <br>
+
+                        <!-- Filter tribe: Romans -->
+                        <input type="checkbox" name="romans" onclick='filterTribe("romans")' checked>
+                        <label for="romans">Romans</label> </br>
+
+                        <!-- Filter tribe: gauls -->
+                        <input type="checkbox" name="gauls" onclick='filterTribe("gauls")' checked>
+                        <label for="gauls">Gauls</label> </br>
+
+                        <!-- Filter tribe: teutons -->
+                        <input type="checkbox" name="teutons" onclick='filterTribe("teutons")' checked>
+                        <label for="teutons">Teutons</label> </br>
+
+                        <!-- Filter tribe: egyptians -->
+                        <input type="checkbox" name="egyptians" onclick='filterTribe("egyptians")' checked>
+                        <label for="egyptians">Egyptians</label> </br>
+
+                        <!-- Filter tribe: huns -->
+                        <input type="checkbox" name="huns" onclick='filterTribe("huns")' checked>
+                        <label for="huns">Huns</label> </br>
+
+                         <!-- Filter tribe: spartans -->
+                         <input type="checkbox" name="spartans" onclick='filterTribe("spartans")' checked>
+                         <label for="spartans">Spartans</label> </br>
+
+                         <!-- Filter tribe: vikings -->
+                         <input type="checkbox" name="vikings" onclick='filterTribe("vikings")' checked>
+                         <label for="spartans">Vikings</label> </br>
+                    </div>
+                </div>
+                
+                <table id="settings-singleSelects-table">
+                    <!-- Relative mode status -->
+                    <tr id="relativeMode-container">
+                        <td><label>Show resources spent per stat: </label></td>
+                        <td><input type="checkbox" onclick='onRelativeModeToggle()'
+                            title="This will take the sum of all resources and divide by its stat. Useful when figuring out cost-efficiency for each unit. "
+                            checked></td>
+                    </tr>
+                    <!-- Include crop cost -->
+                    <tr id="includeCrops-container">
+                        <td><label>Include crop cost in resource calculations: </label></td>
+                        <td><input type="checkbox" onclick='onIncludeCropsToggle()'
+                            title="This will include crop cost when calculating resource-efficiency per troop. Toggling this will cause everything to be re-cacalculated.">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+        <table id="data-table">
+            <tr>
+                <th id="th-rank">#</th>
+                <th id="th-tribe" class="clickable" onclick='onThClick("tribe")'>Tribe</th>
+                <th id="th-troop" class="clickable" onclick='onThClick("troop")'>Troop</th>
+                <th id="th-role" class="clickable" onclick='onThClick("role")'>Role</th>
+                <th id="th-attack" class="clickable" onclick='onThClick("attack")'>Attack</th>
+                <th id="th-totalDef" class="clickable" onclick='onThClick("totalDef")'>Combined Def</th>
+                <th id="th-defense" class="clickable" onclick='onThClick("defense")'>Defense</th>
+                <th id="th-cavDef" class="clickable" onclick='onThClick("cavDef")'>Cav Def</th>
+                <th id="th-speed" class="clickable" onclick='onThClick("speed")'>Speed</th>
+                <th id="th-carry" class="clickable" onclick='onThClick("carry")'>Carry</th>
+                <th id="th-trainingTime" class="clickable" onclick='onThClick("trainingTime")'>Training Time</th>
+                <th id="th-upkeep" class="clickable" onclick='onThClick("upkeep")'>Upkeep</th>
+            </tr>
+        </table>
+    </section>
+
+    <script type="text/javascript" src="main.js"></script>
+
+</body>
+
+</html>
